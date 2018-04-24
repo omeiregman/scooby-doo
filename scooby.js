@@ -18,16 +18,18 @@ const scoobyClick = () => {
   }
 }
 
-//Loops through the string gotten from the input field and scobbys each word using the function scoobySnack
+//Loops through the string gotten from the input field, splits it into an array
+//and scobbys each element using the function scoobySnack
 const scoobyLoop = () => {
   //Splits the string into an array
-  let newText = text.split(" ");
+  let arrayText = text.split(" ");
   let scooby = [];
   //loopss through each array, applying the scoobySnack function on each element
-  for (let i=0; i<newText.length; i++) {
-    textBox=newText[i];
+  for (let i=0; i<arrayText.length; i++) {
+    textBox=arrayText[i];
     scooby.push(scoobySnack(textBox));
   }
+  //joins the arrays back into a single string and returns the value
   let scoobyText  = scooby.join(" ");
   return scoobyText;
 }
@@ -35,15 +37,13 @@ const scoobyLoop = () => {
 //Takes in a single word as an arguement and Scoobys it
 const scoobySnack = (textBox) => {
   let scoobyVowel = /[a|e|i|o|u]/i;
-  let limiter;
   for (let i=0; i<textBox.length; i++){
     if(scoobyVowel.exec(textBox[i])){
-      limiter = i;
-      var newStr = "r" + textBox.slice(limiter);
+      var newTextBox = "r" + textBox.slice(i);
       break;
     } else {
-      newStr = textBox;
+      newTextbox = textBox;
     }
   }
-  return newStr;
+  return newTextBox;
 }
