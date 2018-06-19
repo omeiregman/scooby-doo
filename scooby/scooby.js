@@ -11,6 +11,7 @@ function scoobyClear() {
 //Executes when the Scooby Button is Click
 const scoobyClick = () => {
   text = document.querySelector("#scooby").value;
+  let boxCheck = /[^]/\i;
   if (text == "") {
     alert("Please Write a text to Scooby doo")
   } else {
@@ -42,7 +43,7 @@ const scoobySnack = (textBox) => {
       var newTextBox = "r" + textBox.slice(i);
       break;
     } else {
-      newTextbox = textBox;
+      newTextBox = textBox;
     }
   }
   return newTextBox;
